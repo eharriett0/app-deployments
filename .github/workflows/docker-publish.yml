@@ -37,5 +37,6 @@ jobs:
           file: ./flask-guestbook/app/Dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/${{ github.repository_owner }}/flask-guestbook:latest
-                ghcr.io/${{ github.repository_owner }}/flask-guestbook:${{ github.sha }}
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/flask-guestbook:latest
+            ghcr.io/${{ github.repository_owner }}/flask-guestbook:${{ github.sha }}
