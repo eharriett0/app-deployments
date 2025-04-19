@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flask-guestbook
+  namespace: guestbook
+  labels:
+    release: monitoring  # must match your kube-prometheus-stack's release
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: guestbook-ui
+      app.kubernetes.io/name: flask-guestbook
+  namespaceSelector:
+    matchNames:
+      - guestbook
+  endpoints:
+    - port: metrics
+      path: /metrics
+      interval: 15s

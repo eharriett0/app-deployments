@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: guestbook-rules
+  namespace: guestbook
+  labels:
+    release: monitoring  # must match the release name of kube-prometheus-stack
+spec:
+  groups:
+    - name: guestbook-app.rules
+      rules:
+        - alert: HighErrorRate
+          expr: rate(http_request_errors_total[5m]) > 0.1
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: "High error rate in Guestbook"
+            description: "More than 10% of requests have failed in the last 5 minutes."

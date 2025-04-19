@@ -1,0 +1,14 @@
+<!doctype html>
+<title>Guestbook</title>
+<h1>🚀 Guestbook App is Running!</h1>
+
+<form method=post>
+  <input name=message placeholder="Write something...">
+  <input type=submit value="Submit">
+</form>
+
+<ul>
+  {% for msg in messages %}
+    <li>{{ msg }}</li>
+  {% endfor %}
+</ul>
