@@ -14,8 +14,8 @@ func healthz(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/analyze", handlers.Analyze)
+	http.HandleFunc("/healthz", healthz)
+
 	log.Println("Starting server on :8080...")
 	log.Fatal(http.ListenAndServe(":8080", nil))
-
-	http.HandleFunc("/healthz", healthz)
 }
