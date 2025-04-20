@@ -11,8 +11,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: metrics
+      targetPort: http
       protocol: TCP
-      name: metrics
+      name: http
   selector:
     {{- include "sentiment-service.selectorLabels" . | nindent 4 }}
