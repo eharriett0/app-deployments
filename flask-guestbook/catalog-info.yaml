@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: flask-guestbook
+  description: A simple guestbook app written in Flask
+  annotations:
+    github.com/project-slug: eharriett0/app-deployments
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team
+  system: minikube-lab
